@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg1"
 
-    tools:context="codes.justsource.tu_touch.MainActivity"
+    tools:context="codes.justsource.tu_touch.LoginActivity"
      >
 
     <LinearLayout
