@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">TU-Touch</string>
+    <string name="col_trans_id_str">เลขที่</string>
+    <string name="col_name_str">ชื่อ</string>
+    <string name="col_msg_str">รายการ</string>
+    <string name="col_amt_str">จำนวน</string>
 
 </resources>

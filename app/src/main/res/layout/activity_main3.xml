@@ -122,7 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight=".1"
-                        android:text="หน่วยกิจ" />
+                        android:text="หน่วยกิต" />
 
                     <TextView
                         android:id="@+id/grade"
@@ -146,28 +146,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight=".2"
-                        android:text="cs123" />
+                        android:text="@string/col_trans_id_str" />
 
                     <TextView
                         android:id="@+id/name_course"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="MobileApp" />
+                        android:text="@string/col_name_str" />
 
                     <TextView
                         android:id="@+id/unit_course"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight=".1"
-                        android:text="3" />
+                        android:text="@string/col_msg_str" />
 
                     <TextView
                         android:id="@+id/grade_course"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight=".2"
-                        android:text="A" />
+                        android:text="@string/col_amt_str" />
 
                 </LinearLayout>
 
