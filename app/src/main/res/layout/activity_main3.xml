@@ -104,34 +104,73 @@
                     android:background="@color/white">
 
                     <TextView
-                        android:id="@+id/id_course"
+                        android:id="@+id/id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight=".2"
                         android:text="รหัสวิชา" />
 
                     <TextView
-                        android:id="@+id/name_course"
+                        android:id="@+id/name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="ชื่อวิชา" />
 
                     <TextView
-                        android:id="@+id/unit_course"
+                        android:id="@+id/unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight=".1"
                         android:text="หน่วยกิจ" />
 
                     <TextView
-                        android:id="@+id/grade_course"
+                        android:id="@+id/grade"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight=".2"
                         android:text="เกรด" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center|fill"
+                    android:orientation="horizontal"
+                    android:padding="10sp">
+
+                    <TextView
+                        android:id="@+id/id_course"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".2"
+                        android:text="cs123" />
+
+                    <TextView
+                        android:id="@+id/name_course"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="MobileApp" />
+
+                    <TextView
+                        android:id="@+id/unit_course"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:text="3" />
+
+                    <TextView
+                        android:id="@+id/grade_course"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".2"
+                        android:text="A" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
