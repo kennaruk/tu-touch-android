@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="@drawable/bg4"
     tools:context=".DashboardActivity">
 
     <LinearLayout
@@ -17,42 +17,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_margin="10sp"
-            android:padding="10sp"
-            >
-
-            <TextView
-                android:id="@+id/back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="ย้อนกลับ" />
+            android:orientation="vertical"
+            android:padding="10sp">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageView4"
+                android:layout_width="322dp"
+                android:layout_height="86dp"
+                android:padding="10sp"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                style="@style/text"
+                android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher_round" />
+                android:text="ผลการศึกษา" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ผลการศึกษา" />
+            android:orientation="vertical"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,111 +51,50 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:background="@color/yellow">
-
-                    <TextView
-                        android:id="@+id/year"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="20sp"
-                        android:text="ปีการศึกษา" />
-
-                    <TextView
-                        android:id="@+id/show_year"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2561" />
-
-                    <TextView
-                        android:id="@+id/term"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10sp"
-                        android:text="ภาคเรียน" />
-
-                    <TextView
-                        android:id="@+id/show_term"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:gravity="center|fill"
                     android:orientation="horizontal"
                     android:padding="10sp"
-                    android:background="@color/white">
+                    android:background="@color/yellow">
 
                     <TextView
                         android:id="@+id/id"
-                        android:layout_width="wrap_content"
+                        android:layout_width="55dip"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".2"
                         android:text="รหัสวิชา" />
 
                     <TextView
                         android:id="@+id/name"
-                        android:layout_width="wrap_content"
+                        android:layout_width="195dip"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="ชื่อวิชา" />
 
                     <TextView
                         android:id="@+id/unit"
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dip"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".1"
                         android:text="หน่วยกิต" />
 
                     <TextView
                         android:id="@+id/grade"
-                        android:layout_width="wrap_content"
+                        android:layout_width="50dip"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".2"
                         android:text="เกรด" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:gravity="center|fill"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:padding="10sp">
-
-                    <TextView
-                        android:id="@+id/id_course"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".2"
-                        android:text="@string/col_trans_id_str" />
-
-                    <TextView
-                        android:id="@+id/name_course"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/col_name_str" />
-
-                    <TextView
-                        android:id="@+id/unit_course"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".1"
-                        android:text="@string/col_msg_str" />
-
-                    <TextView
-                        android:id="@+id/grade_course"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".2"
-                        android:text="@string/col_amt_str" />
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/my_recycler_view"
+                        android:scrollbars="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </android.support.v7.widget.RecyclerView>
 
                 </LinearLayout>
 
