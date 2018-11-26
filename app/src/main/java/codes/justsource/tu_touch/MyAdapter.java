@@ -21,9 +21,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
     public MyAdapter(List<Course> myDataset) {
         this.mDataset = myDataset;
-        for (Course c : mDataset) {
-            Log.e(TAG,"Chk2 = "+c.getCourseName());
-        }
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -54,13 +51,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
-//        for (Course c : mDataset) {
-//            holder.course_id.setText(c.getCourseId());
-//            holder.course_name.setText(c.getCourseName());
-//            holder.course_credit.setText(c.getCourseCredit());
-//            holder.course_grade.setText(c.getCourseGrade());
-//        }
 
         holder.course_id.setText(mDataset.get(position).getCourseId());
         holder.course_name.setText(mDataset.get(position).getCourseName());

@@ -19,13 +19,34 @@
             android:layout_height="169dp"
             app:srcCompat="@drawable/logo" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                app:srcCompat="@drawable/card" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="แตะบัตรเพื่อเข้าสู่ระบบ " />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
             style="@style/text"
-            android:layout_marginBottom="10sp"
-            android:text="เข้าสู่ระบบ" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="หรือ" />
 
         <EditText
             android:id="@+id/stdIdField"

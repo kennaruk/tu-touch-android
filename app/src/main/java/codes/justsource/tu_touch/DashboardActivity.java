@@ -33,7 +33,6 @@ public class DashboardActivity extends AppCompatActivity {
         Intent intent = getIntent();
         List<Course> courses = (List<Course>) intent.getSerializableExtra("courses");
 
-        Log.e(TAG,"Chk = "+courses.toString());
 
         mAdapter = new MyAdapter(courses);
         mRecyclerView.setAdapter(mAdapter);
