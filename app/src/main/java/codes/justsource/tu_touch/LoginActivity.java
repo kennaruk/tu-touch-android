@@ -1,16 +1,21 @@
 package codes.justsource.tu_touch;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import java.io.Serializable;
 import java.util.List;
@@ -22,12 +27,15 @@ import retrofit2.Retrofit;
 import services.ApiClient;
 import services.CourseService;
 
+import static android.view.View.VISIBLE;
+
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = LoginActivity.class.getSimpleName();
     private EditText stdIdEdtText, stdPwdEdtText;
     private Button loginBtn;
     private Intent intentToDashboard;
     private NfcAdapter nfcAdapter;
+    private ProgressBar pgsBar;
     String tagInfo,tagID="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +46,22 @@ public class LoginActivity extends AppCompatActivity {
         stdIdEdtText = (EditText) findViewById(R.id.stdIdField);
         stdPwdEdtText = (EditText) findViewById(R.id.stdPwdField);
         loginBtn = (Button) findViewById(R.id.loginBtn);
+        pgsBar = (ProgressBar) findViewById(R.id.pBar);
         intentToDashboard = new Intent(LoginActivity.this, DashboardActivity.class);
+
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        } else {
+            connected = false;
+            Toast.makeText(this,
+                    "Can't Connect to the Internet!",
+                    Toast.LENGTH_LONG).show();
+            startActivity(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS));
+        }
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if(nfcAdapter == null){
@@ -50,6 +73,8 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this,
                     "NFC NOT Enabled!",
                     Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplicationContext(), "Please activate NFC and press Back to return to the application!", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(android.provider.Settings.ACTION_NFC_SETTINGS));
             finish();
         }
 
@@ -71,6 +96,9 @@ public class LoginActivity extends AppCompatActivity {
 //            Toast.makeText(this,
 //                    "onResume()if - ACTION_TECH_DISCOVERED",
 //                    Toast.LENGTH_SHORT).show();
+
+
+
             tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
             if(tag == null){
                 Toast.makeText(this, "tag == null" ,Toast.LENGTH_SHORT).show();
@@ -95,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                 String stdRfid = tagID;
 
                 login(stdId, stdPwd, stdRfid);
+                pgsBar.setVisibility(VISIBLE);
             }
         };
     }
@@ -103,6 +132,12 @@ public class LoginActivity extends AppCompatActivity {
         String stdRfid = tagID;
         Log.e(TAG,stdRfid+ " in func login Rfid2 ");
         login("", "",stdRfid);
+        pgsBar.setVisibility(VISIBLE);
+        stdIdEdtText.setEnabled(false);
+        stdPwdEdtText.setEnabled(false);
+        loginBtn.setEnabled(false);
+
+
 
     }
 
@@ -137,6 +172,10 @@ public class LoginActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
                         handleClickLogin();
+                        stdIdEdtText.setEnabled(true);
+                        stdPwdEdtText.setEnabled(true);
+                        loginBtn.setEnabled(true);
+                        pgsBar.setVisibility(View.INVISIBLE);
                     }
                 });
                 dialog.show();

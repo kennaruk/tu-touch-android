@@ -78,5 +78,15 @@
             android:text="เข้าสู่ระบบด้วยรหัสผ่าน"
             android:textColor="@android:color/black" />
 
+        <ProgressBar
+            android:id="@+id/pBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/btnShow"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"/>
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
