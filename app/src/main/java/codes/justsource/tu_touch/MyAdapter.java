@@ -29,6 +29,8 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
         public TextView course_name;
         public TextView course_credit;
         public TextView course_grade;
+        public TextView course_term;
+        public TextView course_year;
 
         public MyViewHolder(View v) {
             super(v);
@@ -36,6 +38,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
             course_name = (TextView) v.findViewById(R.id.course_name);
             course_credit = (TextView) v.findViewById(R.id.credit);
             course_grade = (TextView) v.findViewById(R.id.grade);
+
         }
     }
 
@@ -51,7 +54,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
         holder.course_id.setText(mDataset.get(position).getCourseId());
         holder.course_name.setText(mDataset.get(position).getCourseName());
         holder.course_credit.setText(mDataset.get(position).getCourseCredit());

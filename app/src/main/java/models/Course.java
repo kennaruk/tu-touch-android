@@ -3,13 +3,14 @@ package models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Course implements Serializable {
+public class Course implements Serializable{
 
     @SerializedName("courseId")
     @Expose
@@ -23,6 +24,12 @@ public class Course implements Serializable {
     @SerializedName("courseGrade")
     @Expose
     private String courseGrade;
+    @SerializedName("courseTerm")
+    @Expose
+    private String courseTerm;
+    @SerializedName("courseYear")
+    @Expose
+    private String courseYear;
 
     public String getCourseId() {
         return courseId;
@@ -54,6 +61,22 @@ public class Course implements Serializable {
 
     public void setCourseGrade(String courseGrade) {
         this.courseGrade = courseGrade;
+    }
+
+    public String getCourseTerm() {
+        return courseTerm;
+    }
+
+    public void setCourseTerm(String courseTerm) {
+        this.courseTerm = courseTerm;
+    }
+
+    public String getCourseYear() {
+        return courseYear;
+    }
+
+    public void setCourseYear(String courseYear) {
+        this.courseYear = courseYear;
     }
 
 }
